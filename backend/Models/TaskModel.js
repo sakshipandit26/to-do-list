@@ -1,16 +1,19 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const TaskSchema = new Schema({
+const TaskSchema = new mongoose.Schema(
+  {
     taskName: {
-        type: String,
-        required: true
+      type: String,
+      required: [true, "Task name is required"],
+      trim: true,
     },
     isDone: {
-        type: Boolean,
-        required: true
-    }
-});
+      type: Boolean,
+      default: false, // better UX: defaults to not done
+    },
+  },
+  { timestamps: true } // adds createdAt and updatedAt
+);
 
-const TaskModel = mongoose.model('todos', TaskSchema);
+const TaskModel = mongoose.model('Task', TaskSchema); // better naming than 'todos'
 module.exports = TaskModel;
