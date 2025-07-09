@@ -15,11 +15,20 @@ const createTask = async (req, res) => {
 
 const fetchAllTasks = async (req, res) => {
     try {
-        const data = await TaskModel.find({});
-        res.status(200).json({ message: 'All Tasks', success: true, data });
+        const tasks = await TaskModel.find({}).sort({ createdAt: -1 }); // latest tasks first
+        res.status(200).json({
+            message: 'Fetched all tasks successfully',
+            success: true,
+            count: tasks.length,
+            data: tasks
+        });
     } catch (err) {
         console.error("fetchAllTasks error:", err.message);
-        res.status(500).json({ message: 'Failed to get all tasks', success: false });
+        res.status(500).json({
+            message: 'Failed to fetch tasks',
+            success: false,
+            error: err.message
+        });
     }
 };
 
