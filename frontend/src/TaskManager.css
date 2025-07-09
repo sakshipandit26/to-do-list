@@ -1,0 +1,95 @@
+/* Global background */
+body {
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Wrapper container */
+.d-flex.flex-column.align-items-center.w-50.m-auto.mt-5 {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease;
+}
+
+/* Input fields */
+.form-control {
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #4c8eda;
+  box-shadow: 0 0 8px rgba(76, 142, 218, 0.4);
+}
+
+/* Buttons */
+.btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Task items */
+.bg-light {
+  background-color: #f8f9fa !important;
+  transition: background 0.3s ease;
+}
+
+.bg-light:hover {
+  background-color: #e9ecef !important;
+}
+
+/* Check and edit button colors */
+.btn-success {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+}
+
+.btn-primary {
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+}
+
+.btn-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+/* Title icon animation */
+h1::before {
+  margin-right: 10px;
+  animation: bounce 1s infinite alternate;
+  display: inline-block;
+}
+
+/* Animations */
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
