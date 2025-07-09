@@ -16,12 +16,12 @@ const createTask = async (req, res) => {
 const fetchAllTasks = async (req, res) => {
     try {
         const data = await TaskModel.find({});
-        res.status(200)
-            .json({ message: 'All Tasks', success: true, data });
+        res.status(200).json({ message: 'All Tasks', success: true, data });
     } catch (err) {
+        console.error("fetchAllTasks error:", err.message);
         res.status(500).json({ message: 'Failed to get all tasks', success: false });
     }
-}
+};
 
 
 const updateTaskById = async (req, res) => {
